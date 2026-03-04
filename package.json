@@ -1,0 +1,26 @@
+{
+  "name": "nukejs.com",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fetch-version": "node scripts/fetch-version.mjs",
+    "predev": "node scripts/fetch-version.mjs",
+    "prebuild": "node scripts/fetch-version.mjs",
+    "dev": "nuke dev",
+    "build": "nuke build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@types/node": "^25.3.3",
+    "highlight.js": "^11.11.1",
+    "nukejs": "^0.0.3",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14"
+  }
+}

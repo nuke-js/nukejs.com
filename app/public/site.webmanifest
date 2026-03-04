@@ -1,0 +1,23 @@
+{
+  "name": "NukeJS",
+  "short_name": "NukeJS",
+  "description": "The full-stack React framework with SSR, HMR, file-based routing, and API routes — out of the box.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#ff4d4d",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
