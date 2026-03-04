@@ -2,7 +2,7 @@
   "name": "nukejs.com",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.mjs",
   "scripts": {
     "fetch-version": "node scripts/fetch-version.mjs",
     "predev": "node scripts/fetch-version.mjs",
@@ -17,7 +17,7 @@
   "dependencies": {
     "@types/node": "^25.3.3",
     "highlight.js": "^11.11.1",
-    "nukejs": "^0.0.3",
+    "nukejs": "^0.0.4",
     "tsx": "^4.21.0"
   },
   "devDependencies": {
