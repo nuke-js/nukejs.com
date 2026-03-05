@@ -1,4 +1,5 @@
 "use client"
+import { Link } from "nukejs"
 import { useState, useEffect } from "react"
 
 const NAV = [
@@ -90,13 +91,12 @@ export default function DocSidebar() {
                                     const active = path === item.href
                                     return (
                                         <li key={item.href}>
-                                            <a
+                                            <Link
                                                 href={item.href}
                                                 className={`doc-nav-link${active ? " active" : ""}`}
-                                                onClick={() => setOpen(false)}
                                             >
                                                 {item.label}
-                                            </a>
+                                            </Link>
                                         </li>
                                     )
                                 })}
