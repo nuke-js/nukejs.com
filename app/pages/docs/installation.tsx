@@ -23,7 +23,7 @@ export default function InstallationPage() {
 
                 <h2>Create a new project</h2>
                 <p>Run the create command and follow the prompts. It scaffolds a working app in seconds:</p>
-                <CodeBlock language="bash" filename="terminal" code={`npm create nuke`} />
+                <CodeBlock language="bash" filename="terminal" code={`npm create nuke@latest`} />
                 <p>This creates a new directory with:</p>
                 <ul>
                     <li>A home page at <code>app/pages/index.tsx</code></li>

@@ -66,7 +66,7 @@ export default function DocsIndex() {
 
                 <h2>Quick start</h2>
                 <p>Create a project and start the dev server:</p>
-                <CodeBlock language="bash" filename="terminal" code={`npm create nuke\ncd my-app\nnpm run dev`} />
+                <CodeBlock language="bash" filename="terminal" code={`npm create nuke@latest\ncd my-app\nnpm run dev`} />
                 <p>Your app is running at <code>http://localhost:3000</code>. Open <code>app/pages/index.tsx</code> and start editing — changes appear instantly.</p>
             </div>
         </article>

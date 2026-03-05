@@ -5,7 +5,8 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
     useHtml({
         title: (t) => `${t} - Docs`,
         link: [
-            { rel: "stylesheet", href: "/atom-one-dark.min.css" },
+            { rel: "stylesheet", href: "/docs.css" },
+            { rel: "stylesheet", href: "/atom-one-dark.min.css" }
         ]
     })
     return (

@@ -6,6 +6,9 @@ import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "../consts"
 export default function Layout({ children }: { children: React.ReactNode }) {
     useHtml({
         title: (title) => `${title} - ${SITE_NAME}`,
+        htmlAttrs: {
+            lang: "en"
+        },
         meta: [
             // Core
             { name: "description", content: SITE_DESCRIPTION },
