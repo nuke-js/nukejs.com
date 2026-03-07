@@ -13,7 +13,7 @@
     --border: #1e1e1e;
     --border2: #2c2c2c;
     --text: #efefef;
-    --muted: #666;
+    --muted: #dadada;
     --muted2: #3a3a3a;
     --accent: #ff6b35;
     --accent-soft: rgba(255, 107, 53, 0.1);
@@ -325,7 +325,7 @@ pre {
     font-size: 0.78rem;
     line-height: 1.9;
     /* padding: 1.4rem 1.5rem; */
-    color: #777;
+    color: #a4a4a4;
     overflow-x: auto;
 }
 
@@ -687,7 +687,7 @@ footer {
 
 .footer-copy {
     font-size: 0.7rem;
-    color: var(--muted2);
+    color: var(--muted);
 }
 
 /* ── ANIM ── */
@@ -725,4 +725,8 @@ footer {
 ::-webkit-scrollbar-thumb {
     background: var(--accent);
     border-radius: 2px;
+}
+
+.hljs {
+    background: #000 !important;
 }
