@@ -62,6 +62,11 @@ export default function InstallationPage() {
                 <h2>Install TypeScript types</h2>
                 <p>NukeJS ships TypeScript types out of the box. If you need React types:</p>
                 <CodeBlock language="bash" filename="terminal" code={`npm install -D @types/react`} />
+
+                <h2>Upgrading</h2>
+                <p>To upgrade NukeJS to the latest version, reinstall it from npm:</p>
+                <CodeBlock language="bash" filename="terminal" code={`npm uninstall nukejs && npm i nukejs@latest`} />
+                <p>Then restart your dev server.</p>
             </div>
         </article>
     )

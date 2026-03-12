@@ -48,7 +48,7 @@ export default function About() {
                             <tr><td>title</td><td>string | (prev: string) =&gt; string</td><td>Page title. Pass a function to compose with layout titles.</td></tr>
                             <tr><td>meta</td><td>object[]</td><td>Each object becomes a <code>&lt;meta&gt;</code> element.</td></tr>
                             <tr><td>link</td><td>object[]</td><td>Each object becomes a <code>&lt;link&gt;</code> element.</td></tr>
-                            <tr><td>script</td><td>object[]</td><td>Script tags. Supports <code>type</code>, <code>src</code>, and inline <code>children</code>.</td></tr>
+                            <tr><td>script</td><td>object[]</td><td>Script tags. Supports <code>type</code>, <code>src</code>, inline <code>children</code>, and <code>position</code> (<code>"head"</code> | <code>"body"</code>).</td></tr>
                             <tr><td>htmlAttrs</td><td>object</td><td>Attributes set on <code>&lt;html&gt;</code> (e.g. <code>lang</code>).</td></tr>
                             <tr><td>bodyAttrs</td><td>object</td><td>Attributes set on <code>&lt;body&gt;</code>.</td></tr>
                         </tbody>
@@ -76,6 +76,48 @@ useHtml({ title: 'About Us' })
             gtag('js', new Date());
             gtag('config', 'G-XXXXXX');
         \` },
+    ]
+})`} />
+
+                <h2>Script position: head vs body</h2>
+                <p>
+                    Each script entry accepts a <code>position</code> field that controls where it is injected in the HTML document.
+                </p>
+                <div className="doc-table-wrap">
+                    <table className="doc-table">
+                        <thead><tr><th>position</th><th>Where it lands</th><th>When to use</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>"head"</code> (default)</td><td>Inside <code>&lt;head&gt;</code></td><td>Theme detection, critical inline scripts that must run before first paint.</td></tr>
+                            <tr><td><code>"body"</code></td><td>End of <code>&lt;body&gt;</code></td><td>Analytics, tracking pixels, and third-party loaders that should not block rendering.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <CodeBlock filename="app/pages/layout.tsx" code={`useHtml({
+    script: [
+        // Analytics loader — injected at end of <body>, won't block rendering
+        {
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX',
+            async: true,
+            position: 'body',
+        },
+        // Inline init — also deferred to body, must follow the loader above
+        {
+            children: \`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-XXXXXXXXXX');
+            \`,
+            position: 'body',
+        },
+        // Theme detection — must run before first paint, stays in <head>
+        {
+            children: \`
+                const t = localStorage.getItem('theme') ?? 'light';
+                document.documentElement.classList.add(t);
+            \`,
+            // position defaults to 'head'
+        },
     ]
 })`} />
 

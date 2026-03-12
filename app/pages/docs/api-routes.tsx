@@ -15,23 +15,23 @@ export default function ApiRoutesPage() {
             <div className="doc-body">
                 <h2>Creating a route</h2>
                 <p>Create a <code>.ts</code> file in <code>server/</code> and export named functions matching HTTP methods. The file path maps to the URL the same way pages do:</p>
-                <CodeBlock filename="server/users/index.ts  →  GET /users, POST /users" code={`import type { ApiRequest, ApiResponse } from 'nukejs'
+                <CodeBlock filename="server/users/index.ts  →  GET /users, POST /users" code={`import type { IncomingMessage, ServerResponse } from 'node:http'
 
-export async function GET(req: ApiRequest, res: ApiResponse) {
+export async function GET(req: IncomingMessage, res: ServerResponse) {
     const users = await db.getUsers()
     res.json(users)
 }
 
-export async function POST(req: ApiRequest, res: ApiResponse) {
+export async function POST(req: IncomingMessage, res: ServerResponse) {
     const user = await db.createUser(req.body)
     res.json(user, 201)
 }`} />
 
                 <h2>Dynamic API routes</h2>
                 <p>Use <code>[param]</code> in the filename. Route params land in <code>req.params</code>:</p>
-                <CodeBlock filename="server/users/[id].ts  →  /users/:id" code={`import type { ApiRequest, ApiResponse } from 'nukejs'
+                <CodeBlock filename="server/users/[id].ts  →  /users/:id" code={`import type { IncomingMessage, ServerResponse } from 'node:http'
 
-export async function GET(req: ApiRequest, res: ApiResponse) {
+export async function GET(req: IncomingMessage, res: ServerResponse) {
     const { id } = req.params as { id: string }
     const user = await db.getUser(id)
 
@@ -43,20 +43,20 @@ export async function GET(req: ApiRequest, res: ApiResponse) {
     res.json(user)
 }
 
-export async function PUT(req: ApiRequest, res: ApiResponse) {
+export async function PUT(req: IncomingMessage, res: ServerResponse) {
     const { id } = req.params as { id: string }
     const updated = await db.updateUser(id, req.body)
     res.json(updated)
 }
 
-export async function DELETE(req: ApiRequest, res: ApiResponse) {
+export async function DELETE(req: IncomingMessage, res: ServerResponse) {
     await db.deleteUser(req.params.id as string)
     res.status(204).end()
 }`} />
 
                 <h2>Query string parameters</h2>
                 <p>Query params land in <code>req.query</code> as plain strings alongside <code>req.params</code>:</p>
-                <CodeBlock filename="server/products/[id].ts  →  /products/:id?include=reviews" code={`export async function GET(req: ApiRequest, res: ApiResponse) {
+                <CodeBlock filename="server/products/[id].ts  →  /products/:id?include=reviews" code={`export async function GET(req: IncomingMessage, res: ServerResponse) {
     const { id } = req.params as { id: string }
     const { include } = req.query   // e.g. ?include=reviews
 

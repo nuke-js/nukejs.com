@@ -730,3 +730,10 @@ footer {
 .hljs {
     background: #000 !important;
 }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+    .feat-grid {
+        grid-template-columns: 1fr;
+    }
+}

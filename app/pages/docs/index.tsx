@@ -68,6 +68,23 @@ export default function DocsIndex() {
                 <p>Create a project and start the dev server:</p>
                 <CodeBlock language="bash" filename="terminal" code={`npm create nuke@latest\ncd my-app\nnpm run dev`} />
                 <p>Your app is running at <code>http://localhost:3000</code>. Open <code>app/pages/index.tsx</code> and start editing — changes appear instantly.</p>
+
+                <h2>Try it in your browser</h2>
+                <p>
+                    Want to explore NukeJS without installing anything? Open the playground directly in StackBlitz:
+                </p>
+                <a
+                    href="https://stackblitz.com/edit/nuke?file=app/pages/index.tsx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ display: 'inline-block', marginTop: '0.5rem' }}
+                >
+                    <img
+                        src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"
+                        alt="Open in StackBlitz"
+                        style={{ height: '36px', display: 'block' }}
+                    />
+                </a>
             </div>
         </article>
     )
