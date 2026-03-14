@@ -54,6 +54,11 @@ export default function DocsIndex() {
                         <div className="doc-card-title">Head Management</div>
                         <p className="doc-card-desc"><code>useHtml()</code> controls titles, meta tags, Open Graph, and JSON-LD from any component.</p>
                     </a>
+                    <a className="doc-card" href="/docs/use-request">
+                        <span className="doc-card-icon">🔍</span>
+                        <div className="doc-card-title">useRequest()</div>
+                        <p className="doc-card-desc">Read URL params, query strings, and request headers from any server or client component — reactive on the client.</p>
+                    </a>
                 </div>
 
                 <h2>The core idea</h2>

@@ -27,6 +27,7 @@ const NAV = [
         group: 'Advanced',
         items: [
             { label: 'useHtml()', href: '/docs/head-management' },
+            { label: 'useRequest()', href: '/docs/use-request' },
             { label: 'Configuration', href: '/docs/configuration' },
             { label: 'Deploying', href: '/docs/deploying' },
         ],

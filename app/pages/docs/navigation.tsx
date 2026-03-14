@@ -73,16 +73,27 @@ export default function LoginForm() {
     )
 }`} />
 
-                <h2>router methods</h2>
+                <h2>router methods & properties</h2>
                 <div className="doc-table-wrap">
                     <table className="doc-table">
-                        <thead><tr><th>Method</th><th>Description</th></tr></thead>
+                        <thead><tr><th>Member</th><th>Type</th><th>Description</th></tr></thead>
                         <tbody>
-                            <tr><td>router.push(url)</td><td>Navigate to a URL, adds an entry to the history stack</td></tr>
-                            <tr><td>router.replace(url)</td><td>Navigate without adding to history (replaces current entry)</td></tr>
-                            <tr><td>router.back()</td><td>Go back one step in history</td></tr>
+                            <tr><td>router.path</td><td>string</td><td>The current pathname, reactive — re-renders the component on navigation</td></tr>
+                            <tr><td>router.push(url)</td><td>function</td><td>Navigate to a URL, adds an entry to the history stack</td></tr>
+                            <tr><td>router.replace(url)</td><td>function</td><td>Navigate without adding to history (replaces current entry)</td></tr>
                         </tbody>
                     </table>
+                </div>
+
+                <div className="doc-callout info">
+                    <span className="doc-callout-icon">ℹ️</span>
+                    <div className="doc-callout-body">
+                        <strong>Need URL params or query strings?</strong>{" "}
+                        <code>useRouter()</code> exposes the current pathname. To access dynamic route
+                        segments, query string values, or request headers, use{" "}
+                        <a href="/docs/use-request"><code>useRequest()</code></a> instead — it works
+                        in both server and client components.
+                    </div>
                 </div>
 
                 <h2>External links</h2>
