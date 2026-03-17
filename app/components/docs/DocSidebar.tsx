@@ -21,6 +21,7 @@ const NAV = [
             { label: 'API Routes', href: '/docs/api-routes' },
             { label: 'Middleware', href: '/docs/middleware' },
             { label: 'Static Files', href: '/docs/static-files' },
+            { label: 'Error Handling', href: '/docs/error-handling' },
         ],
     },
     {
@@ -30,6 +31,7 @@ const NAV = [
             { label: 'useRequest()', href: '/docs/use-request' },
             { label: 'Configuration', href: '/docs/configuration' },
             { label: 'Deploying', href: '/docs/deploying' },
+            { label: 'Internationalisation (i18n)', href: '/docs/i18n' },
         ],
     },
     {
