@@ -43,6 +43,7 @@ const NAV = [
             { label: 'Prisma', href: '/docs/examples/prisma' },
             { label: 'Mongoose', href: '/docs/examples/mongoose' },
             { label: 'oRPC', href: '/docs/examples/orpc' },
+            { label: 'shadcn/ui', href: '/docs/examples/shadcn' },
         ],
     },
 ]
