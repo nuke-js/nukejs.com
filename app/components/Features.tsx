@@ -7,6 +7,16 @@ export default function Features() {
         </div>
 
         <div className="feat-grid">
+            {/* Zero dependencies — hero card, full width */}
+            <div className="feat-card">
+                <span className="feat-icon">🪶</span>
+                <div className="feat-title">
+                    Zero Dependencies
+                    <span className="feat-badge">0 deps</span>
+                </div>
+                <p className="feat-desc">NukeJS ships with no runtime dependencies — not a single one. No supply-chain surprises, no bloat, no version conflicts. Just your code and Node.</p>
+            </div>
+
             <div className="feat-card">
                 <span className="feat-icon">🚀</span>
                 <div className="feat-title">Server-Side Rendering</div>
@@ -35,6 +45,12 @@ export default function Features() {
                 <span className="feat-icon">⚡</span>
                 <div className="feat-title">Hot Module Replacement</div>
                 <p className="feat-desc">Edit a component and see it update instantly in the browser — no full refresh, no lost state. Your dev loop stays fast.</p>
+            </div>
+
+            <div className="feat-card">
+                <span className="feat-icon">🔗</span>
+                <div className="feat-title">Middleware</div>
+                <p className="feat-desc">Run logic before any route — auth checks, redirects, logging, request enrichment. Chain as many middlewares as you need, globally or per route.</p>
             </div>
 
             <div className="feat-card">
