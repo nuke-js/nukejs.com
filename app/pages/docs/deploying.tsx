@@ -3,7 +3,7 @@ import CodeBlock from "../../components/docs/CodeBlock"
 
 export default function DeployingPage() {
     const title = "Deploying"
-    const subtitle = "Build once, deploy to Node.js or Vercel. Public files land on the CDN automatically."
+    const subtitle = "Build once, deploy to Node.js, Vercel, or Cloudflare. Zero configuration needed — NukeJS detects the environment automatically."
     useHtml({ title })
     const prev = { href: "/docs/configuration", label: "Configuration" }
     const next = { href: "/docs/examples/tailwindcss", label: "Tailwind CSS" }
@@ -61,6 +61,48 @@ pm2 save && pm2 startup`} />
                     <div className="doc-callout-body">
                         <strong>Public files are CDN-hosted on Vercel</strong>
                         Everything in <code>app/public/</code> lands on Vercel's CDN — served globally with zero latency and no function invocations.
+                    </div>
+                </div>
+
+                <h2>Cloudflare</h2>
+                <p>Import your GitHub repo in the Cloudflare dashboard — no additional configuration needed. NukeJS auto-detects the Cloudflare build environment and outputs to <code>.cloudflare/output/</code>.</p>
+
+                <div className="doc-steps">
+                    <div className="doc-step">
+                        <span className="doc-step-num">1</span>
+                        <div className="doc-step-body"><p>Push your project to GitHub</p></div>
+                    </div>
+                    <div className="doc-step">
+                        <span className="doc-step-num">2</span>
+                        <div className="doc-step-body"><p>Go to <a href="https://dash.cloudflare.com" target="_blank">dash.cloudflare.com</a>, open <strong>Workers &amp; Pages</strong> and connect your repository</p></div>
+                    </div>
+                    <div className="doc-step">
+                        <span className="doc-step-num">3</span>
+                        <div className="doc-step-body"><p>Click Deploy — Cloudflare runs <code>npm run build</code> and deploys automatically</p></div>
+                    </div>
+                </div>
+
+                <p>The build output:</p>
+                <CodeBlock language="bash" filename=".cloudflare/output/" code={`.cloudflare/output/
+├── _worker.mjs     # Single ESM Worker (all routes bundled)
+└── static/
+    ├── __n.js                  # NukeJS client runtime
+    ├── __client-component/     # "use client" component bundles
+    └── ...                     # Copied from app/public/`} />
+
+                <div className="doc-callout tip">
+                    <span className="doc-callout-icon">✅</span>
+                    <div className="doc-callout-body">
+                        <strong>Public files are CDN-hosted on Cloudflare</strong>
+                        Everything in <code>app/public/</code> lands on Cloudflare's global CDN — served with zero latency and no Worker invocations.
+                    </div>
+                </div>
+
+                <div className="doc-callout info">
+                    <span className="doc-callout-icon">ℹ️</span>
+                    <div className="doc-callout-body">
+                        <strong>Pages vs Workers</strong>
+                        For <strong>Cloudflare Pages</strong>, set your build output directory to <code>.cloudflare/output</code> in the dashboard. For <strong>standalone Workers</strong> via <code>wrangler deploy</code>, static assets are inlined into the Worker bundle automatically — no extra step needed.
                     </div>
                 </div>
 
